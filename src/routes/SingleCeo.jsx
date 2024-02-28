@@ -1,11 +1,18 @@
 import { useLoaderData } from "react-router-dom";
-export function loader({ params }) {
+
+export async function loader({ params }) {
   const { slug } = params;
-  return { slug };
+  const url = `http://localhost:8000/ceos/${slug}`;
+  const data = await fetch(url).then((response) => response.json());
+  return { data };
 }
 
 const SingleCeo = () => {
-  const { slug } = useLoaderData();
-  return <p>Single CEO Page {slug} </p>;
+  const { data } = useLoaderData();
+  return (
+    <p>
+      {data.name} became ceo during {data.year}.
+    </p>
+  );
 };
 export default SingleCeo;

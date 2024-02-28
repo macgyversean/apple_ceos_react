@@ -4,6 +4,7 @@ import Home from "./routes/Home";
 import Ceos, { loader as ceoLoader } from "./routes/Ceos";
 import ErrorPage from "./pages/ErrorPage";
 import SingleCeo, { loader as SingleCeoLoader } from "./routes/SingleCeo";
+import AddCeo, { action as addCeoAction } from "./routes/AddCeo";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
         path: "/ceos/:slug",
         element: <SingleCeo />,
         loader: SingleCeoLoader,
+      },
+      {
+        path: "/ceos/add",
+        element: <AddCeo />,
+        action: addCeoAction,
       },
     ],
   },

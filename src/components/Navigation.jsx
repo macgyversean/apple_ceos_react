@@ -7,7 +7,7 @@ const Navigation = ({ navItems }) => {
       <ul>
         {navItems.map((link, index) => {
           return (
-            <li key={`${link.url}-${index}`}>
+            <li key={`${link.title}-${index}`}>
               <Link to={link.url}>{link.title}</Link>
             </li>
           );
